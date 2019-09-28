@@ -5,3 +5,27 @@
 #home{
   background-color:rgba(188, 222, 237, 0.646);
 }
+
+
+#map{
+
+  width: 500px;
+  height: 350px;
+  border: 1px solid rgb(7, 5, 5);
+  box-shadow: 0 8px 16px 0 rgba(9, 24, 22, 0.911), 0 6px 20px 0 rgb(2, 0, 8);
+  margin: 0 auto; 
+  /* position: absolute; */
+}
+
+.container{
+  position: relative;
+}
+
+
+body, html{
+background-color: rgba(221, 236, 236, 0.568);
+ width: 100%;
+ padding: 0;
+ margin: 0;
+ 
+}

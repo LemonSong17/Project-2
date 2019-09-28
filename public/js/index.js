@@ -97,3 +97,18 @@ var handleDeleteBtnClick = function() {
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+
+var map;
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 41.896359, lng: -87.618844 },
+        zoom: 9
+    });
+   
+    var marker = new google.maps.Marker({
+     position: { lat: 41.896359, lng: -87.618844 },
+    map: map,
+     title: 'Hello World!'
+ });
+}
