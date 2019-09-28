@@ -99,16 +99,54 @@ $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
 
 
+
+// google maps api code 
+
 var map;
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 41.896359, lng: -87.618844 },
-        zoom: 9
+
+function createMap () {
+  var options = {
+    center: { lat: 41.896359, lng: -87.618844 },
+    zoom: 10
+  };
+
+  map = new google.maps.Map(document.getElementById('map'), options);
+
+  var input = document.getElementById('search');
+  var searchBox = new google.maps.places.SearchBox(input);
+
+  map.addListener('bounds_changed', function() {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  var markers = [];
+  
+  searchBox.addListener('places_changed', function () {
+    var places = searchBox.getPlaces();
+
+    if (places.length == 0)
+      return;
+
+    markers.forEach(function (m) { m.setMap(null); });
+    markers = [];
+
+    var bounds = new google.maps.LatLngBounds();
+    places.forEach(function(p) {
+      if (!p.geometry)
+        return;
+
+      markers.push(new google.maps.Marker({
+        map: map,
+        title: p.name,
+        position: p.geometry.location
+      }));
+
+      if (p.geometry.viewport)
+        bounds.union(p.geometry.viewport);
+      else
+        bounds.extend(p.geometry.location);
     });
-   
-    var marker = new google.maps.Marker({
-     position: { lat: 41.896359, lng: -87.618844 },
-    map: map,
-     title: 'Hello World!'
- });
-}
+    
+    map.fitBounds(bounds);
+  });
+}  

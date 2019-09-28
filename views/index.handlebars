@@ -2,8 +2,8 @@
   <div class="container">
     <div class="row">
       <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>Running out of supplies stockUp!</h2>
+        <img id="logo" src="/img/logo.png" alt="logo">
+        {{!-- <h1>{{msg}}</h1>  --}}
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="example-text">Product Category</label>
@@ -15,27 +15,31 @@
             <textarea class="form-control" id="example-description" aria-describedby="example-description"
               placeholder="e.g Pinesole, Cookie Dough, Chips"></textarea>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
+          <button id="submit" class="btn btn-dark float-right">Submit</button>
         </form>
         <h3>Your list</h3>
         <ul id="example-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
             <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
+            <button class="btn btn-dark float-right delete">ｘ</button>
           </li>
           {{/each}}
         </ul>
       </div>
     </div>
   </div>
-</div>
-
+</div><br>
+<div class="row mb-2">
+      <div class="col">
+        <input class="form-control" id="search" type="text" placeholder="Search..." />
+      </div>
+    </div><br>
 <div id="mapdiv">
   <div id="map"></div>
 </div> <br>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkx6csSYgVsdKk50-0CHLp3v2RE8d9pQ0&callback=initMap" async
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBkx6csSYgVsdKk50-0CHLp3v2RE8d9pQ0&callback=createMap&libraries=places" async
   defer></script>
 <script src="/js/index.js"></script>
