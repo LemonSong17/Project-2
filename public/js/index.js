@@ -1,8 +1,9 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+var $product =  $("#product");
+var $quantity = $("#quantity");
+var $description = $("#description");
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $shoppingList = $("#shopping-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -46,7 +47,7 @@ var refreshExamples = function() {
         .append($a);
 
       var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
+        .addClass("btn btn-outline-danger float-right delete")
         .text("ｘ");
 
       $li.append($button);
@@ -54,8 +55,8 @@ var refreshExamples = function() {
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $shoppingList.empty();
+    $shoppingList.append($examples);
   });
 };
 
@@ -65,8 +66,8 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+    text: $product.val().trim(),
+    description: $description.val().trim()
   };
 
   if (!(example.text && example.description)) {
@@ -77,9 +78,9 @@ var handleFormSubmit = function(event) {
   API.saveExample(example).then(function() {
     refreshExamples();
   });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
+  
+  $product.val("");
+  $description.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
@@ -96,7 +97,7 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$shoppingList.on("click", ".delete", handleDeleteBtnClick);
 
 
 
