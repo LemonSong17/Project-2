@@ -66,7 +66,6 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var example = {
-    text: $quantity,
     text: $product.val().trim(),
     description: $description.val().trim()
   };
@@ -79,7 +78,7 @@ var handleFormSubmit = function(event) {
   API.saveExample(example).then(function() {
     refreshExamples();
   });
-
+  
   $product.val("");
   $description.val("");
 };
