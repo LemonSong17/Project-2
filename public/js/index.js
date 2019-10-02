@@ -1,5 +1,5 @@
 // Get references to page elements
-var $product = $("#product");
+var $product =  $("#product");
 var $quantity = $("#quantity");
 var $description = $("#description");
 var $submitBtn = $("#submit");
