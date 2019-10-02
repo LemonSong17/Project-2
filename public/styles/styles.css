@@ -75,3 +75,23 @@ form{
   transition: 0.4s;
 }
 
+footer{
+  width: 100%;
+  background: #000000;
+  padding: 1px;
+  bottom:0; 
+}
+
+.developers{  
+  text-align: center;
+  margin: 15px;
+
+}
+
+.dev{
+  color: rgba(165, 210, 215, 0.92);
+  margin: 10px;
+
+}
+
+
