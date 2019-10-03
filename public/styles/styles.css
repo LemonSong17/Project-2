@@ -10,7 +10,7 @@
 
 #map{
   display: block;
-  width: 60%;
+  width: 65%;
   height: 320px;
   border: 1px solid rgb(7, 5, 5);
   box-shadow: 0 8px 16px 0 rgba(9, 24, 22, 0.911), 0 6px 20px 0 rgb(2, 0, 8);
@@ -74,6 +74,7 @@ h3{
   outline: none;
   transition: 0.4s;
 }
+
 
 footer{
   width: 100%;
