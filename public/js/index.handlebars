@@ -3,50 +3,32 @@
     <div class="row">
       <div class="col-8 offset-2">
         <img id="logo" class="responsive" src="/img/logo.png" alt="logo">
-
+        
         {{!-- <h1>{{msg}}</h1>  --}}
-
-
-        <form class="clearfix mb-4" action="POST">
+        
+        <form class="clearfix mb-4" action="POST" >
           <div class="form-group">
 
-        <form class="clearfix mb-4" action="POST">
-          <div class="row">
-            <div class="col-10">
-              <div class="form-group">
-
-                <label for="product">Product</label>
-                <input type="text" id="product" class="form-control" aria-describedby="list-text"
-                  placeholder="e.g banana , bread, detergent">
-
-              </div>
-
-            </div>
-            <div class="col-2">
-               <div class="form-group">
-
-                <label for="quantity">#</label>
-                <input type="text" id="quantity" class="form-control" aria-describedby="list-text">
-
-              </div>
-
-
-            </div>
+            <label for="example-text">Product Category</label>
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text"
+              placeholder="e.g cleaning supplies , Frozen, Snacks">
           </div>
           <div class="form-group">
-            <label for="description">Description</label>
-            <textarea class="form-control" id="description" aria-describedby="item-description"
+            <label for="example-description">Product Description</label>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description"
               placeholder="e.g Pinesole, Cookie Dough, Chips"></textarea>
           </div>
           <button id="submit" class="btn btn-danger float-right">Submit</button>
         </form>
-
-        <h3>Your Shopping list</h3>
-        <ul id="shopping-list" class="list-group">
+        
+        <h3>Shopping List</h3>
+        <ul id="example-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}} QTY: {{this.qty}}</a>
-            <button class="btn btn-outline-danger float-right delete">X</button>
+            <p>Hello World</p>
+            <a href="example/{{this.id}}">{{this.text}}</a>
+            <p> QTY {{this.qty}}</p>
+            <button class="btn btn-outline-danger float-right delete">ｘ</button>
           </li>
           {{/each}}
         </ul>
@@ -60,7 +42,7 @@
         <div class="panel">
           <div class="row mb-2">
             <div class="col">
-              <input class="form-control" style="margin-top: 20px" id="search" type="text" placeholder="Search..." />
+              <input class="form-control" id="search" type="text" placeholder="Search..." />
             </div>
           </div><br>
 
@@ -76,15 +58,6 @@
 </div>
 
 </div><br>
-
-<footer>
-  <div class="developers">
-    <span class="dev">© Developers</span>
-    <a class="dev" href="https://github.com/GiorgioGeorge"> <strong>George</strong></a>
-    <a class="dev" href="https://github.com/LemonSong17"><strong>Joseph</strong></a>
-    <a class="dev" href="https://github.com/anand92490"><strong>Anand</strong></a>
-  </div>
-</footer>
 
 
 {{!-- script for accordion --}}

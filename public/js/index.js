@@ -67,7 +67,8 @@ var handleFormSubmit = function(event) {
 
   var example = {
     text: $product.val().trim(),
-    description: $description.val().trim()
+    description: $description.val().trim(),
+    qty: $quantity.val().trim()
   };
 
   if (!(example.text && example.description)) {
