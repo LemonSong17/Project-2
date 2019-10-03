@@ -10,7 +10,7 @@
 
 #map{
   display: block;
-  width: 65%;
+  width: 60%;
   height: 320px;
   border: 1px solid rgb(7, 5, 5);
   box-shadow: 0 8px 16px 0 rgba(9, 24, 22, 0.911), 0 6px 20px 0 rgb(2, 0, 8);
@@ -46,9 +46,9 @@ h3{
   margin-top: 50px;
 }
 
-/* form{
+form{
   margin-top: 100px;
-} */
+}
 .responsive {
   max-width: 100%;
   height: auto;
@@ -75,7 +75,6 @@ h3{
   transition: 0.4s;
 }
 
-
 footer{
   width: 100%;
   background: #000000;
@@ -94,5 +93,3 @@ footer{
   margin: 10px;
 
 }
-
-
