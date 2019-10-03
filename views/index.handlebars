@@ -49,7 +49,7 @@
         <ul id="shopping-list" class="list-group">
           {{#each examples}}
           <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
+            <a href="example/{{this.id}}">{{this.text}} QTY: {{this.qty}}</a>
             <button class="btn btn-outline-danger float-right delete">X</button>
           </li>
           {{/each}}
