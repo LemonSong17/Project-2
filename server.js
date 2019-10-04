@@ -1,7 +1,9 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-
+var cookieParser = require("cookie-parser");
+var bodyParser = require("body-parser");
+var path = require("path");
 var db = require("./models");
 
 var app = express();
