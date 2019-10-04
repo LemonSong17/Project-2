@@ -7,12 +7,12 @@
         {{!-- <h1>{{msg}}</h1>  --}}
 
 
-        <form class="clearfix mb-4" action="POST">
+        <form class="clearfix mb-4" action="POST" style="padding-top: 75px;">
           <div class="form-group">
 
         <form class="clearfix mb-4" action="POST">
           <div class="row">
-            <div class="col-10">
+            <div class="col-9">
               <div class="form-group">
 
                 <label for="product">Product</label>
@@ -22,7 +22,7 @@
               </div>
 
             </div>
-            <div class="col-2">
+            <div class="col-3">
                <div class="form-group">
 
                 <label for="quantity">#</label>
@@ -40,7 +40,7 @@
           </div>
           <button id="submit" class="btn btn-danger float-right">Submit</button>
         </form>
-
+<div class="list">
         <h3> Shopping list</h3>
         <ul id="shopping-list" class="list-group">
           {{#each examples}}
@@ -50,7 +50,7 @@
           </li>
           {{/each}}
         </ul>
-
+</div>
 
        
     {{!-- preferences modal --}}
