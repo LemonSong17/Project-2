@@ -36,7 +36,7 @@ var refreshExamples = function() {
   API.getExamples().then(function(data) {
     var $examples = data.map(function(example) {
       var $a = $("<a>")
-        .text(example.text)
+        .text(example.qty + " " +  example.text)
         .attr("href", "/example/" + example.id);
 
       var $li = $("<li>")
@@ -87,6 +87,8 @@ var handleFormSubmit = function(event) {
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
+  event.preventDefault();
+
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
