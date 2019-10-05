@@ -2,13 +2,34 @@
 
 #StockUp
 
-StockUp is a new app deploying in 2019 that is meant to help you create, update and monitor your grocery list while also showing you different options on where you can buy your desired item at the cheapest price.
 
-When the user logs into the StockUp app, they're presented with several different catagories for every day shopping items (Toiliteries, Produce, General Merchandise, ect). When you click on the given catagory the user is presented a page where they can add items for that specific catagory (ex: toothpaste under the Toiliteries catagory). After the new item is submited, it displays on the page. From here the client is able to add, subtract and keep a running inventory of the quantity need for that specific item.
+StockUp is a new app deploying in 2019 that is meant to help you create, update and monitor your grocery list.
 
-Throughout the app, there will be multiple links to the client's "grocery list". When the client clicks the link they're taken to their grocery list for the week that shows them exactly what they need to buy based off the inventory that they have been monitoring/adjusting throughout the week. If you hover over a given item on your list you can get price comparisons for common grocery stores to find the best price. From this page you can also see on Google Maps where the closest grocery stores are around you given your current location. For those not willing to step outside their house, there is also a link to Amazon for the item that you're needing to StockUp on.
+When the user logs into the StockUp app, they're presented with a form where they can enter what type of product they wish to purchase, the quantity of that product and what department or catagory that it would fall under. Once the user submits their item they can see the product append to their Shopping List. If the user clicks on any given item that they've added to their list they're able to see a detailed description. The user is also able to delete any of their items off of their shopping list by clicking on the red "x" to the far right of item that they're hoping to remove. 
+
+At the bottom of the page is an accordion GUI that says "Nearby Stores". If the user clicks on it the accordian expands and the user can see a miniturized version of Google Maps. Above the map is a search form where the user can search for grocery stores or any particular store that they desire in there area or anywhere around the world for that matter. After typing in pulling up the results of whatever type of storefront the user is looking for to pick up their item, they're able to maximize the GoogleMap by clicking the expand button in the top right. From here the user is able to zoom in and out to better locate their stores, they can switch between Map and Satellite mode and they can even browse street view images by picking up and dropping the yellow man in the bottom right of the map.
+
+Finally, right below the Nearby Stores accordion is a Recipe accordian. If the user clicks the accordian a form is expanded and presented on the sreen where users can search for different dishes. After the user presses submit they're presented with five different types of dishes based on what type of dish they typed into the form. Below each unique dish that is presented is a link to the website where the user can get further details on how to create the dish such as ingredients and cooking instructions.
+
+![](https://media2.giphy.com/media/3ohjV0MRFCJORyUQec/giphy.gif?cid=790b761172830d447e08ae0421e06288e419e3b38a0d141a&rid=giphy.gif)
 
 APIs used:
 
-Google Maps
-Google Shopping
+Google Maps (Places)
+Edamam (Recipe Search)
+
+Technology used:
+
+Accordian function
+Bootstrap
+CSS
+Express
+Express-Handlebars
+Google Fonts
+Heroku
+JQuery
+Models
+MVC standards
+Node
+Sequel
+Sequelize ORM
