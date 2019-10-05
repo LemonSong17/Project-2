@@ -4,18 +4,16 @@ var $quantity = $("#quantity");
 var $description = $("#description");
 var $submitBtn = $("#submit");
 var $shoppingList = $("#shopping-list");
-var $username = $("username");
-var $password = $("password");
+var $recipe = $("#recipe");
 
 
 function clear() {
-  $("#select-recipe").empty;
+  $("#recipe-input").empty();
   $("#output").empty();
+  
 }
 
-$('#my-accordion').on('show hide', function() {
-  $(this).css('height', 'auto');
-});
+
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -192,23 +190,32 @@ function searchRecipe(recipe) {
 
     for (var i = 0; i < 5; i++) {
       var recipe = response.hits[i].recipe;
-      console.log(JSON.stringify(recipe.ingredient));
+      
+      for(var n = 0; n <recipe.ingredients.length; n++){
+      // console.log(JSON.stringify(recipe.ingredients[n].text));
+  
+       let ingredients = JSON.stringify(recipe.ingredients[n].text);
+      // console.log(ingredients);
+       JSON.parse(ingredients);
+      console.log(ingredients);
+      
+      }
       var recipeName = recipe.label;
       var $recipeList = $("<ul>");
       $recipeList.addClass("list-group");
       $("#output").prepend($recipeList);
-      var $recipeListItem = $("<li class='list-group-item recipeHeadline'>");
+      var $recipeListItem = $("<li class='list-group-item recipeHeadline' style='margin-top: 20px;' class='recipelist'>");
       $recipeListItem.append(
         "<h6 class='label label-primary'>" +
         recipeName +
         "</h6>"
-     
+       
         );
      
       
-      $recipeListItem.append("<a href='" + recipe.url + "'>" + recipe.url + "</a>");
+      $recipeListItem.append("<a class='btn btn-outline-danger float-right' href='" + recipe.url + "' target = '_blank'>" + "get recipe" + "</a>");
       
-      
+   
       
       $recipeList.append($recipeListItem);
 
@@ -223,6 +230,7 @@ function searchRecipe(recipe) {
 // Event handler for user clicking the select-recipe button
 $("#select-recipe").on("click", function (event) {
   clear();
+  $recipe.val("")
   // Preventing the button from trying to submit the form
   event.preventDefault();
 
@@ -232,3 +240,4 @@ $("#select-recipe").on("click", function (event) {
   // Running the searchRecipe function(passing in the recipe as an argument)
   searchRecipe(inputRecipe);
 });
+
