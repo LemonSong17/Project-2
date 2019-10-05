@@ -2,17 +2,18 @@
   <div class="container">
     {{!-- login  --}}
     <button class="btn btn-dark float-right" onclick="document.getElementById('id01').style.display='block'"
-      style="width:auto;">Login</button> <br><hr color="red" align="left" width="100%" size="6">
+      style="width:auto;">Login</button> <br>
+    <hr color="red" align="left" width="100%" size="6">
 
     <div id="id01" class="modal">
 
-      <form class="modal-content animate" action="" method="post">
+      <form class="modal-content animate" action="POST" method="post">
         <div class="container">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
+          <label for="username" id="username" class="form-control" aria-describedby="list-text"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="password" required>
 
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
+          <label for="password" id="password" class="form-control" aria-describedby="list-text"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="password" required>
 
           <button type="submit" class="btn btn-info float-right">Login</button>
           <label>
@@ -122,10 +123,10 @@
 
 
 
-{{!-- recipe search --}}
+    {{!-- recipe search --}}
     <div class="row">
       <div class="col-8 offset-2">
-        <button id="my-accordion"class="accordion">Recipes</button>
+        <button id="my-accordion" class="accordion">Recipes</button>
         <div class="panel">
           <div class="row">
             <div class="col-12">
@@ -145,13 +146,13 @@
               </form>
 
             </div>
-            
+
             <div id="recipe-output">
               <div class="container-fluid">
                 <div class="row">
-                  
+
                   <div id="output" class="col-12">
-                  
+
                   </div>
 
                 </div>
