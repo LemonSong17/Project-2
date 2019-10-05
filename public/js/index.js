@@ -4,6 +4,8 @@ var $quantity = $("#quantity");
 var $description = $("#description");
 var $submitBtn = $("#submit");
 var $shoppingList = $("#shopping-list");
+var $username = $("username");
+var $password = $("password");
 
 
 function clear() {

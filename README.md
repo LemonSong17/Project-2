@@ -1,7 +1,7 @@
 # Project-2
 
-#StockUp
-
+# StockUp
+##### https://stockup-007.herokuapp.com/
 
 StockUp is a new app deploying in 2019 that is meant to help you create, update and monitor your grocery list.
 
@@ -12,12 +12,12 @@ At the bottom of the page is an accordion GUI that says "Nearby Stores". If the 
 Finally, right below the Nearby Stores accordion is a Recipe accordian. If the user clicks the accordian a form is expanded and presented on the sreen where users can search for different dishes. After the user presses submit they're presented with five different types of dishes based on what type of dish they typed into the form. Below each unique dish that is presented is a link to the website where the user can get further details on how to create the dish such as ingredients and cooking instructions.
 
 
-APIs used:
+## APIs used:
 
 Google Maps (Places),
 Edamam (Recipe Search)
 
-Technology used:
+## Technology used:
 
 Accordian function,
 Bootstrap,
@@ -32,3 +32,10 @@ MVC standards,
 Node,
 Sequel,
 Sequelize ORM,
+
+## screenshots 
+
+![](public/img/stockup1.png)    
+![](public/img/stockup2.png)  
+![](public/img/stockup3.png)  
+
