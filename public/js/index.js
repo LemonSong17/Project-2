@@ -11,6 +11,10 @@ function clear() {
   $("#output").empty();
 }
 
+$('#my-accordion').on('show hide', function() {
+  $(this).css('height', 'auto');
+});
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function (example) {
@@ -186,6 +190,7 @@ function searchRecipe(recipe) {
 
     for (var i = 0; i < 5; i++) {
       var recipe = response.hits[i].recipe;
+      console.log(JSON.stringify(recipe.ingredient));
       var recipeName = recipe.label;
       var $recipeList = $("<ul>");
       $recipeList.addClass("list-group");
@@ -195,12 +200,13 @@ function searchRecipe(recipe) {
         "<h6 class='label label-primary'>" +
         recipeName +
         "</h6>"
-      );
-      // let ingredient = JSON.parse(recipe.ingredient[0])
+     
+        );
+     
       
       $recipeListItem.append("<a href='" + recipe.url + "'>" + recipe.url + "</a>");
       
-      // $recipeListItem.append("<p>" + ingredient + "</p>");
+      
       
       $recipeList.append($recipeListItem);
 
