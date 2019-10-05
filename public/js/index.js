@@ -7,7 +7,7 @@ var $shoppingList = $("#shopping-list");
 var $recipe = $("#recipe");
 
 
-function clear() {
+function divclear() {
   $("#recipe-input").empty();
   $("#output").empty();
   
@@ -168,7 +168,7 @@ function createMap() {
 
 
 
-appID = "90423dc1"
+appID = "a712336a"
 
 
 
@@ -176,7 +176,7 @@ function searchRecipe(recipe) {
 
 
   // Querying the bandsintown api for the selected recipe, the ?app_id parameter is required, but can equal anything
-  var queryURL = "https://api.edamam.com/search?q=" + recipe + "&app_id=" + appID + "&app_key=3533748995e8674171d6b027ee269793";
+  var queryURL = "https://api.edamam.com/search?q=" + recipe + "&app_id=" + appID + "&app_key=49812f2256558cc66aa8bc6fa569a5ed";
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -229,8 +229,8 @@ function searchRecipe(recipe) {
 
 // Event handler for user clicking the select-recipe button
 $("#select-recipe").on("click", function (event) {
-  clear();
-  $recipe.val("")
+  divclear();
+  $recipe.val("");
   // Preventing the button from trying to submit the form
   event.preventDefault();
 
