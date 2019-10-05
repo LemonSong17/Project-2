@@ -11,7 +11,9 @@ At the bottom of the page is an accordion GUI that says "Nearby Stores". If the 
 
 Finally, right below the Nearby Stores accordion is a Recipe accordian. If the user clicks the accordian a form is expanded and presented on the sreen where users can search for different dishes. After the user presses submit they're presented with five different types of dishes based on what type of dish they typed into the form. Below each unique dish that is presented is a link to the website where the user can get further details on how to create the dish such as ingredients and cooking instructions.
 
-![alt text](https://media2.giphy.com/media/3ohjV0MRFCJORyUQec/giphy.gif?cid=790b761172830d447e08ae0421e06288e419e3b38a0d141a&rid=giphy.gif)
+![alt text][logo]
+
+[logo]:(https://media2.giphy.com/media/3ohjV0MRFCJORyUQec/giphy.gif?cid=790b761172830d447e08ae0421e06288e419e3b38a0d141a&rid=giphy.gif)
 
 APIs used:
 
