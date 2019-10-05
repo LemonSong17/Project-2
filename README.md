@@ -1,4 +1,3 @@
-# Project-2
 
 # StockUp
 ##### https://stockup-007.herokuapp.com/
