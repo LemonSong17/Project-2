@@ -14,7 +14,7 @@ Finally, right below the Nearby Stores accordion is a Recipe accordian. If the u
 
 APIs used:
 
-Google Maps (Places)
+Google Maps (Places),
 Edamam (Recipe Search)
 
 Technology used:
