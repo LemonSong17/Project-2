@@ -1,13 +1,19 @@
 // Get references to page elements
-var $product =  $("#product");
+var $product = $("#product");
 var $quantity = $("#quantity");
 var $description = $("#description");
 var $submitBtn = $("#submit");
 var $shoppingList = $("#shopping-list");
 
+
+function clear() {
+  $("#select-recipe").empty;
+  $("#output").empty();
+}
+
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveExample: function (example) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -17,13 +23,13 @@ var API = {
       data: JSON.stringify(example)
     });
   },
-  getExamples: function() {
+  getExamples: function () {
     return $.ajax({
       url: "api/examples",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteExample: function (id) {
     return $.ajax({
       url: "api/examples/" + id,
       type: "DELETE"
@@ -32,11 +38,11 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+var refreshExamples = function () {
+  API.getExamples().then(function (data) {
+    var $examples = data.map(function (example) {
       var $a = $("<a>")
-        .text(example.qty + " " +  example.text)
+        .text(example.qty + " " + example.text)
         .attr("href", "/example/" + example.id);
 
       var $li = $("<li>")
@@ -62,7 +68,7 @@ var refreshExamples = function() {
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var example = {
@@ -76,24 +82,24 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveExample(example).then(function() {
+  API.saveExample(example).then(function () {
     refreshExamples();
   });
-  
+  $quantity.val("")
   $product.val("");
   $description.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
+var handleDeleteBtnClick = function () {
   event.preventDefault();
 
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
+  API.deleteExample(idToDelete).then(function () {
     refreshExamples();
   });
 };
@@ -108,7 +114,7 @@ $shoppingList.on("click", ".delete", handleDeleteBtnClick);
 
 var map;
 
-function createMap () {
+function createMap() {
   var options = {
     center: { lat: 41.896359, lng: -87.618844 },
     zoom: 10
@@ -119,12 +125,12 @@ function createMap () {
   var input = document.getElementById('search');
   var searchBox = new google.maps.places.SearchBox(input);
 
-  map.addListener('bounds_changed', function() {
+  map.addListener('bounds_changed', function () {
     searchBox.setBounds(map.getBounds());
   });
 
   var markers = [];
-  
+
   searchBox.addListener('places_changed', function () {
     var places = searchBox.getPlaces();
 
@@ -135,7 +141,7 @@ function createMap () {
     markers = [];
 
     var bounds = new google.maps.LatLngBounds();
-    places.forEach(function(p) {
+    places.forEach(function (p) {
       if (!p.geometry)
         return;
 
@@ -151,9 +157,70 @@ function createMap () {
         bounds.extend(p.geometry.location);
     });
 
-    
+
     map.fitBounds(bounds);
   });
-}  
+}
 
-  
+
+
+appID = "90423dc1"
+
+
+
+function searchRecipe(recipe) {
+
+
+  // Querying the bandsintown api for the selected recipe, the ?app_id parameter is required, but can equal anything
+  var queryURL = "https://api.edamam.com/search?q=" + recipe + "&app_id=" + appID + "&app_key=3533748995e8674171d6b027ee269793";
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function (response) {
+
+    // Printing the entire object to console
+    console.log(response);
+    if (response.hits.length == 0) {
+      $("#output").append("<h5> No Recipes could be found</h5>");
+    }
+
+    for (var i = 0; i < 5; i++) {
+      var recipe = response.hits[i].recipe;
+      var recipeName = recipe.label;
+      var $recipeList = $("<ul>");
+      $recipeList.addClass("list-group");
+      $("#output").prepend($recipeList);
+      var $recipeListItem = $("<li class='list-group-item recipeHeadline'>");
+      $recipeListItem.append(
+        "<h6 class='label label-primary'>" +
+        recipeName +
+        "</h6>"
+      );
+      // let ingredient = JSON.parse(recipe.ingredient[0])
+      
+      $recipeListItem.append("<a href='" + recipe.url + "'>" + recipe.url + "</a>");
+      
+      // $recipeListItem.append("<p>" + ingredient + "</p>");
+      
+      $recipeList.append($recipeListItem);
+
+    }
+
+
+    $("#recipe-div").empty();
+    $("#recipe-div").append();
+  });
+}
+
+// Event handler for user clicking the select-recipe button
+$("#select-recipe").on("click", function (event) {
+  clear();
+  // Preventing the button from trying to submit the form
+  event.preventDefault();
+
+  // Storing the recipe name
+  var inputRecipe = $("#recipe-input").val().trim();
+
+  // Running the searchRecipe function(passing in the recipe as an argument)
+  searchRecipe(inputRecipe);
+});
